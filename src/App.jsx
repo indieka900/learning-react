@@ -1,5 +1,7 @@
 //import { UserProfile } from './component/userProfile'
 
+import { LoginForm } from "./component/LoginForm";
+
 //import { UserDetails } from "./component/userDetails"
 
 export default function App(){
@@ -30,8 +32,8 @@ export default function App(){
     //         email: "billi@mail.com"
     //     },
     // ]
-    const isAuntendicated = true;
-    const name = 'Joseph';
+    // const isAuntendicated = true;
+    // const name = 'Joseph';
     // if (isAuntendicated){
     //     return (
     //         <div>
@@ -46,7 +48,7 @@ export default function App(){
     //         </div>
     //     )
     // }
-    return (
+    /*return (
         isAuntendicated && name == "Joseph" ?
         <div>
            <h1>Welcome {name}</h1>  
@@ -55,7 +57,7 @@ export default function App(){
         <div>
             <h2>You&apos;re  not logged in</h2>
         </div>
-    )
+    )*/
     // return <div>
     //     {/* <h1> New component</h1> */}
     //     {/* <UserProfile  */}
@@ -76,4 +78,7 @@ export default function App(){
     //     })}
         
     // </div>
+    return (
+        <LoginForm/>
+    )
 }
