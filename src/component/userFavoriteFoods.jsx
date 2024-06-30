@@ -1,10 +1,11 @@
 import { createElement } from "react";
+import styles from "./users.module.scss";
 
 export function UserFavFoods (){
     return createElement('section',{},
-        <span>Favorite Foods: </span>,
+        <span className={styles.foodsTitle}>Favorite Foods: </span>,
         <br />,
-        <ul>
+        <ul className={styles["one-food"]}>
             <li>Ugali</li>
             <li>Fish</li>
             <li>Chicken</li>
