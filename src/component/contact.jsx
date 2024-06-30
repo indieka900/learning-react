@@ -4,10 +4,13 @@ export function Contact(props){
     // if (props.code){
     //     code = props.code
     // }
-    return <section>
-        <hr />
-        <h2>Contact form</h2>
-        <p>Username: {props.username}</p>
-        <p>Country code: <b>{code}</b></p>
-    </section>
+    return (
+        <>
+            <hr />
+            <h2>Contact form</h2>
+            <p>Username: {props.username}</p>
+            <p>Country code: <b>{code}</b></p>
+        </>
+    )
+   
 }
