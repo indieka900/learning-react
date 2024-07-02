@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-export function UserDetails({ user, setUsers }) {
+export function UserDetails({ user, setUsers, setCounter }) {
   //const user = props.user;
 
   const [isEditing, setIsEditing] = useState(false);
@@ -34,6 +34,7 @@ export function UserDetails({ user, setUsers }) {
           onClick={() => {
             setUsers((current) => 
               current.filter((currentUser) => currentUser.id !== user.id));
+            setCounter((c) => c - 1);
           }}
         >
           Delete
@@ -78,4 +79,5 @@ UserDetails.propTypes = {
     email: PropTypes.string.isRequired,
   }).isRequired,
   setUsers: PropTypes.func.isRequired,
+  setCounter: PropTypes.func.isRequired,
 };
