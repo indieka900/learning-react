@@ -1,11 +1,17 @@
 import { useState } from "react";
 
 export function RegisterForm() {
-  const [username, setUsername] = useState("");
+  /*const [username, setUsername] = useState("");
   const [password, setpassword] = useState("");
   const [displayName, setdisplayName] = useState("");
 
-  const isDisabled = !username || password.length < 8 || !displayName ? true : false;
+  const isDisabled = !username || password.length < 8 || !displayName ? true : false;*/
+
+  const [formField, setFormFields] = useState({
+    username: "",
+    password: "",
+    displayName: "",
+  });
 
   return (
     <form action="" method="post">
@@ -15,8 +21,13 @@ export function RegisterForm() {
           type="text"
           name="username"
           id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={formField.username}
+          onChange={(e) =>
+            setFormFields((currentState) => ({
+              ...currentState,
+              username: e.target.value,
+            }))
+          }
         />
       </div>
       <div>
@@ -25,8 +36,13 @@ export function RegisterForm() {
           type="password"
           name="password"
           id="password"
-          value={password}
-          onChange={(e) => setpassword(e.target.value)}
+          value={formField.password}
+          onChange={(e) =>
+            setFormFields((currentState) => ({
+              ...currentState,
+              password: e.target.value,
+            }))
+          }
         />
       </div>
       <div>
@@ -35,11 +51,16 @@ export function RegisterForm() {
           type="text"
           name="displayName"
           id="displayName"
-          value={displayName}
-          onChange={(e) => setdisplayName(e.target.value)}
+          value={formField.displayName}
+          onChange={(e) =>
+            setFormFields((currentState) => ({
+              ...currentState,
+              displayName: e.target.value,
+            }))
+          }
         />
       </div>
-      <button type="submit" disabled={isDisabled}>Sign Up</button>
+      {/* <button type="submit" disabled={isDisabled}>Sign Up</button> */}
     </form>
   );
 }
