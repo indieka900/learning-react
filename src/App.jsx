@@ -58,26 +58,26 @@ export default function App(){
             <h2>You&apos;re  not logged in</h2>
         </div>
     )*/
-    // return <div>
-    //     {/* <h1> New component</h1> */}
-    //     {/* <UserProfile  */}
-    //     {/* age={13} username="Joseph I" callMe = {callMe}
-    //     favoriteFoods = {[
-    //         {
-    //             name: "Ugali",
-    //             id: "qwer"
-    //         },
-    //         {
-    //             name: "Samaki",
-    //             id: "smk"
-    //         }
-    //     ]}
-    //     /> */}
-    //     {mockUsers.map((user) => {
-    //         return <UserDetails key={user.id * 231 + 527} user={user} />
-    //     })}
+    /*return <div>
+        { <h1> New component</h1> }
+        { <UserProfile  }
+        { age={13} username="Joseph I" callMe = {callMe}
+        favoriteFoods = {[
+            {
+                name: "Ugali",
+                id: "qwer"
+            },
+            {
+                name: "Samaki",
+                id: "smk"
+            }
+        ]}
+        /> }
+        {mockUsers.map((user) => {
+            return <UserDetails key={user.id * 231 + 527} user={user} />
+        })}
         
-    // </div>
+    </div> */
     return (
         <LoginForm/>
     )
