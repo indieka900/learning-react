@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 //import { UserProfile } from './component/userProfile'
 
 import { LoginForm } from "./component/LoginForm";
+import { RegisterForm } from "./component/RegisterForm";
 
 //import { UserDetails } from "./component/userDetails"
 
@@ -79,6 +81,7 @@ export default function App(){
         
     </div> */
     return (
-        <LoginForm/>
+        //<LoginForm/>
+        <RegisterForm />
     )
 }
