@@ -13,6 +13,8 @@ export function RegisterForm() {
     displayName: "",
   });
 
+  const isDisabled = !formField.username || formField.password.length < 8 || !formField.displayName ? true : false;
+
   return (
     <form action="" method="post">
       <div>
@@ -60,7 +62,7 @@ export function RegisterForm() {
           }
         />
       </div>
-      {/* <button type="submit" disabled={isDisabled}>Sign Up</button> */}
+      <button type="submit" disabled={isDisabled}>Sign Up</button>
     </form>
   );
 }
