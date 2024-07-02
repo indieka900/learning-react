@@ -1,21 +1,76 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import { useState } from "react";
 
-export function UserDetails({user}){
-    //const user = props.user;
-    return (<div key={user.id*140}>
-        <b>ID</b> <span>{user.id}</span>
+export function UserDetails({ user, setUsers }) {
+  //const user = props.user;
+
+  const [isEditing, setIsEditing] = useState(false);
+  const [username, setUsername] = useState(user.name);
+  const [email, setemail] = useState(user.email);
+
+  return (
+    <div>
+      <div>
+        {!isEditing ? (
+          <button onClick={() => setIsEditing((currentState) => !currentState)}>
+            Edit
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              setUsers((current) => {
+                return current.map((currentUser) => {
+                  if (currentUser.id === user.id)
+                    return { ...currentUser, name: username, email: email };
+                  else return currentUser;
+                });
+              });
+              setIsEditing(false);
+            }}
+          >
+            Save
+          </button>
+        )}
+
+        <button>Delete</button>
+      </div>
+      <div key={user.id * 140}>
+        <b>Id: </b> <span>{user.id}</span>
         <br />
-        <b>Username</b> <span>{user.name}</span>
-        <br/>
-        <b>Email: </b> <span>{user.email}</span>
+        <b>Username: </b>{" "}
+        {isEditing ? (
+          <input
+            name="username"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        ) : (
+          <span>{user.name}</span>
+        )}
+        <br />
+        <b>Email: </b>{" "}
+        {isEditing ? (
+          <input
+            name="email"
+            id="email"
+            value={email}
+            onChange={(e) => setemail(e.target.value)}
+          />
+        ) : (
+          <span>{user.email}</span>
+        )}
         <hr />
-    </div>)
+      </div>
+    </div>
+  );
 }
 
 UserDetails.propTypes = {
-    user: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        email: PropTypes.string.isRequired,
-    })
-}
+  user: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+  }).isRequired,
+  setUsers: PropTypes.func.isRequired,
+};

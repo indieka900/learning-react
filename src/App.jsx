@@ -1,12 +1,35 @@
 /* eslint-disable no-unused-vars */
 //import { UserProfile } from './component/userProfile'
 
+import { useState } from "react";
 import { LoginForm } from "./component/LoginForm";
 import { RegisterForm } from "./component/RegisterForm";
 
-//import { UserDetails } from "./component/userDetails"
+import { UserDetails } from "./component/userDetails"
 
-export default function App(){
+export default function App() {
+    const [users, setUsers] = useState([
+        {
+            id: 1,
+            name: "Johnstone Alinyo",
+            email: "Johny@mail.com"
+        },
+        {
+            id: 2,
+            name: "Miriam Achieng'",
+            email: "mirriam@mail.com"
+        },
+        {
+            id: 3,
+            name: "Jenny Achieng'",
+            email: "jenny@mail.com"
+        },
+        {
+            id: 4,
+            name: "Bill Muhamza",
+            email: "billi@mail.com"
+        },
+    ]);
     // const callMe = () => {
     //     console.log("Hello");
     //     <h2>Hello functions</h2>
@@ -82,6 +105,9 @@ export default function App(){
     </div> */
     return (
         //<LoginForm/>
-        <RegisterForm />
-    )
+        //<RegisterForm />
+        <div>
+            {users.map((user) => (<UserDetails key={user.id} user={user} setUsers={setUsers}/>))}
+        </div>
+    );
 }
