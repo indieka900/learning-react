@@ -1,12 +1,14 @@
 /* eslint-disable no-unused-vars */
 //import { UserProfile } from './component/userProfile'
+import styles from "./component/styles.module.css"
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { LoginForm } from "./component/LoginForm";
 import { RegisterForm } from "./component/RegisterForm";
 
 import { UserDetails } from "./component/userDetails";
 import { RegisterState } from "./component/registerState";
+import { Counter } from "./component/counter";
 
 export default function App() {
  
@@ -53,6 +55,9 @@ export default function App() {
   //         </div>
   //     )
   // }
+  useEffect(()=> {
+    document.title = "Joseph Learning React"
+});
   /*return (
         isAuntendicated && name == "Joseph" ?
         <div>
@@ -86,6 +91,7 @@ export default function App() {
   return (
     //<LoginForm/>
     //<RegisterForm />
-    <RegisterState/>
+    //<RegisterState/>
+    <Counter/>
   );
 }
