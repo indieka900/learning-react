@@ -9,6 +9,7 @@ import { RegisterForm } from "./component/RegisterForm";
 import { UserDetails } from "./component/userDetails";
 import { RegisterState } from "./component/registerState";
 import { Counter } from "./component/counter";
+import { PostData } from "./component/postReq";
 
 export default function App() {
  
@@ -92,6 +93,7 @@ export default function App() {
     //<LoginForm/>
     //<RegisterForm />
     //<RegisterState/>
-    <Counter/>
+    //<Counter/>
+    < PostData />
   );
 }
