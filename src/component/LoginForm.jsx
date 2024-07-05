@@ -1,4 +1,9 @@
+import { useResizeWindow } from "../utils/hooks/useResizeWindow";
+
 export function LoginForm() {
+    //custom hook
+    useResizeWindow();
+    
     return (
         <form onSubmit={(e) => {
             e.preventDefault();

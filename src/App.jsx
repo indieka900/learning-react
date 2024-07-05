@@ -90,10 +90,10 @@ export default function App() {
         
     </div> */
   return (
-    //<LoginForm/>
+    <LoginForm/>
     //<RegisterForm />
     //<RegisterState/>
     //<Counter/>
-    < PostData />
+    //< PostData />
   );
 }
