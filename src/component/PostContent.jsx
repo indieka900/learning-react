@@ -1,9 +1,9 @@
 import { PostContentButton } from "./PostContentButton";
 
 export function PostContent() {
-    return(
+    return (
         <div>
             <PostContentButton />
         </div>
-    )
+    );
 }

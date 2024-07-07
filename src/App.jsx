@@ -10,6 +10,8 @@ import { UserDetails } from "./component/userDetails";
 import { RegisterState } from "./component/registerState";
 import { Counter } from "./component/counter";
 import { PostData } from "./component/postReq";
+import { UserContext } from "./utils/context/usercontext";
+import { PostContainer } from "./component/PostContainer";
 
 export default function App() {
  
@@ -90,7 +92,16 @@ export default function App() {
         
     </div> */
   return (
-    <LoginForm/>
+    <UserContext.Provider value={{
+      id: 1,
+      username: "Joseph",
+      email: "indiekaj@mail.c"
+    }}>
+      <div>
+        <PostContainer/>
+      </div>
+    </UserContext.Provider>
+    //<LoginForm/>
     //<RegisterForm />
     //<RegisterState/>
     //<Counter/>
