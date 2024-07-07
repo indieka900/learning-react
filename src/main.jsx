@@ -9,16 +9,19 @@ import { UsersPage } from './pages/UsersFile';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />
+    element: <App />,
+    children: [
+      {
+        path: '/users',
+        element: <UsersPage/>
+      }
+    ]
   },
   {
     path: '/register',
     element: <RegisterForm/>
   },
-  {
-    path: '/users',
-    element: <UsersPage/>
-  }
+
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

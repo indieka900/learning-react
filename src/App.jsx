@@ -14,6 +14,7 @@ import { UserContext } from "./utils/context/usercontext";
 import { PostContainer } from "./component/PostContainer";
 import { PostContentButton } from "./component/PostContentButton";
 import { useFetchUser } from "./utils/hooks/useFetcUser";
+import { Link, Outlet } from "react-router-dom";
 
 export default function App() {
  
@@ -102,11 +103,19 @@ useEffect(()=>{
     </div> */
   return (
     <>
+      <nav>
+        <ul>
+          <li><Link to='/'>Home</Link> </li>
+          <li><Link to='/register'>Sign Up</Link></li>
+          <li><Link to='/users'>Users</Link></li>
+        </ul>
+      </nav>
       <UserContext.Provider value={{...userData, setUserData}}>
       <div id="detail">
         {loading ? "Loading..." : !error && <PostContainer/>}
       </div>
       </UserContext.Provider>
+      <Outlet />
     </>
     
     //<LoginForm/>
