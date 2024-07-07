@@ -8,7 +8,8 @@ export function PostContainer(){
         <div>
             <PostContent/>
             <div>
-                <h2>{userContextDate.username}</h2>
+                <h1>{userContextDate.firstname + " - " +userContextDate.lastname}</h1>
+                <i>{userContextDate.email}</i>
                 <h2>{userContextDate.id}</h2>
             </div>
         </div>

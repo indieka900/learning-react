@@ -13,6 +13,7 @@ import { PostData } from "./component/postReq";
 import { UserContext } from "./utils/context/usercontext";
 import { PostContainer } from "./component/PostContainer";
 import { PostContentButton } from "./component/PostContentButton";
+import { useFetchUser } from "./utils/hooks/useFetcUser";
 
 export default function App() {
  
@@ -62,11 +63,13 @@ export default function App() {
   useEffect(()=> {
     document.title = "Joseph Learning React"
 });
-const [userData, setUserData] = useState({
-  id: 1,
-  username: "Joseph",
-  email: "indiekaj@mail.c"
-})
+
+const {userdata , loading, error} = useFetchUser(4)
+const [userData, setUserData] = useState()
+
+useEffect(()=>{
+  !loading && !error && userdata && setUserData(userdata);
+}, [loading, error, userdata])
   /*return (
         isAuntendicated && name == "Joseph" ?
         <div>
@@ -101,7 +104,7 @@ const [userData, setUserData] = useState({
     <>
       <UserContext.Provider value={{...userData, setUserData}}>
       <div>
-        <PostContainer/>
+        {loading ? "Loading..." : !error && <PostContainer/>}
       </div>
       </UserContext.Provider>
     </>
