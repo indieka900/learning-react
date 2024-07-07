@@ -103,7 +103,7 @@ useEffect(()=>{
   return (
     <>
       <UserContext.Provider value={{...userData, setUserData}}>
-      <div>
+      <div id="detail">
         {loading ? "Loading..." : !error && <PostContainer/>}
       </div>
       </UserContext.Provider>
