@@ -12,6 +12,7 @@ import { Counter } from "./component/counter";
 import { PostData } from "./component/postReq";
 import { UserContext } from "./utils/context/usercontext";
 import { PostContainer } from "./component/PostContainer";
+import { PostContentButton } from "./component/PostContentButton";
 
 export default function App() {
  
@@ -61,6 +62,11 @@ export default function App() {
   useEffect(()=> {
     document.title = "Joseph Learning React"
 });
+const [userData, setUserData] = useState({
+  id: 1,
+  username: "Joseph",
+  email: "indiekaj@mail.c"
+})
   /*return (
         isAuntendicated && name == "Joseph" ?
         <div>
@@ -92,15 +98,14 @@ export default function App() {
         
     </div> */
   return (
-    <UserContext.Provider value={{
-      id: 1,
-      username: "Joseph",
-      email: "indiekaj@mail.c"
-    }}>
+    <>
+      <UserContext.Provider value={{...userData, setUserData}}>
       <div>
         <PostContainer/>
       </div>
-    </UserContext.Provider>
+      </UserContext.Provider>
+    </>
+    
     //<LoginForm/>
     //<RegisterForm />
     //<RegisterState/>

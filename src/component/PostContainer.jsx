@@ -9,6 +9,7 @@ export function PostContainer(){
             <PostContent/>
             <div>
                 <h2>{userContextDate.username}</h2>
+                <h2>{userContextDate.id}</h2>
             </div>
         </div>
     )
