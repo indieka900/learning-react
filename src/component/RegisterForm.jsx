@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export function RegisterForm() {
   /*const [username, setUsername] = useState("");
@@ -13,10 +14,29 @@ export function RegisterForm() {
     displayName: "",
   });
 
+  const [register, setregister] = useState([]);
+
+  const {state} = useLocation();
+
+  useEffect(() => {
+    if(state && state.register){
+      setregister(state.register)
+    }
+    return () => {
+      
+    };
+  }, [state]);
+
   const isDisabled = !formField.username || formField.password.length < 8 || !formField.displayName ? true : false;
 
   return (
+    
     <form action="" method="post">
+      {register.map((reg) =>(
+      <div key={1}>
+        <h2>{reg.title}</h2>
+      </div>
+    ))}
       <div>
         <label htmlFor="username">Username: </label>
         <input

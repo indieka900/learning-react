@@ -14,7 +14,7 @@ import { UserContext } from "./utils/context/usercontext";
 import { PostContainer } from "./component/PostContainer";
 import { PostContentButton } from "./component/PostContentButton";
 import { useFetchUser } from "./utils/hooks/useFetcUser";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 export default function App() {
  
@@ -68,9 +68,14 @@ export default function App() {
 const {userdata , loading, error} = useFetchUser(4)
 const [userData, setUserData] = useState()
 
+const navigate = useNavigate()
+
 useEffect(()=>{
-  !loading && !error && userdata && setUserData(userdata);
-}, [loading, error, userdata])
+  if(!loading && !error && userdata ){
+    setUserData(userdata);
+    //navigate('/users');
+  } 
+}, [loading, error, userdata, navigate])
   /*return (
         isAuntendicated && name == "Joseph" ?
         <div>
@@ -103,16 +108,29 @@ useEffect(()=>{
     </div> */
   return (
     <>
-      <nav>
+      <nav id="sidebar">
         <ul>
           <li><Link to='/'>Home</Link> </li>
           <li><Link to='/register'>Sign Up</Link></li>
           <li><Link to='/users'>Users</Link></li>
         </ul>
       </nav>
+      <div>
+        <label htmlFor="data">Enter Data: </label>
+        <input type="text" name="" id="data" onChange={(e)=>{
+          e.target.value.length > 5 && navigate('/register', {state:{
+            register: [
+              {
+                title: "Register Page",
+                name: "Joseph"
+              }
+            ]
+          }});
+        }} />
+      </div>
       <UserContext.Provider value={{...userData, setUserData}}>
       <div id="detail">
-        {loading ? "Loading..." : !error && <PostContainer/>}
+        {loading ? <div id="search-spinner"></div> : !error && <PostContainer/>}
       </div>
       </UserContext.Provider>
       <Outlet />
