@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 export function RegisterForm() {
   /*const [username, setUsername] = useState("");
@@ -82,6 +83,7 @@ export function RegisterForm() {
           }
         />
       </div>
+      <Link to='/'>Home</Link>
       <button type="submit" disabled={isDisabled}>Sign Up</button>
     </form>
   );
