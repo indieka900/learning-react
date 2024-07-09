@@ -4,7 +4,7 @@ import { UsernameDisplay } from "../component/usernameDisplay";
 
 describe('UsernameDisplay', () => {
     it('Should render username', () => {
-        const result = render(<UsernameDisplay/>);
+        const result = render(<UsernameDisplay username="Joseph I"/>);
         expect(result.container).toMatchSnapshot();
     });
 });
