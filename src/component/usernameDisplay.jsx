@@ -12,3 +12,7 @@ export function UsernameDisplay( {username} ) {
 UsernameDisplay.PropTypes = {
     username: PropTypes.string
 }
+
+UsernameDisplay.defaultProps = {
+    username: "Joseph"
+}
