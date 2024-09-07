@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 //import { UserProfile } from './component/userProfile'
-import styles from "./component/styles.module.css"
+import styles from "./component/styles.module.css";
 
 import { useState, useEffect } from "react";
 import { LoginForm } from "./component/LoginForm";
@@ -17,7 +17,6 @@ import { useFetchUser } from "./utils/hooks/useFetcUser";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
 export default function App() {
- 
   // const callMe = () => {
   //     console.log("Hello");
   //     <h2>Hello functions</h2>
@@ -61,21 +60,21 @@ export default function App() {
   //         </div>
   //     )
   // }
-  useEffect(()=> {
-    document.title = "Joseph Learning React"
-});
+  useEffect(() => {
+    document.title = "Joseph Learning React";
+  });
 
-const {userdata , loading, error} = useFetchUser(4)
-const [userData, setUserData] = useState()
+  const { userdata, loading, error } = useFetchUser(4);
+  const [userData, setUserData] = useState();
 
-const navigate = useNavigate()
+  const navigate = useNavigate();
 
-useEffect(()=>{
-  if(!loading && !error && userdata ){
-    setUserData(userdata);
-    //navigate('/users');
-  } 
-}, [loading, error, userdata, navigate])
+  useEffect(() => {
+    if (!loading && !error && userdata) {
+      setUserData(userdata);
+      //navigate('/users');
+    }
+  }, [loading, error, userdata, navigate]);
   /*return (
         isAuntendicated && name == "Joseph" ?
         <div>
@@ -110,32 +109,50 @@ useEffect(()=>{
     <>
       <nav id="sidebar">
         <ul>
-          <li><Link to='/'>Home</Link> </li>
-          <li><Link to='/register'>Sign Up</Link></li>
-          <li><Link to='/users'>Users</Link></li>
+          <li>
+            <Link to="/">Home</Link>{" "}
+          </li>
+          <li>
+            <Link to="/register">Sign Up</Link>
+          </li>
+          <li>
+            <Link to="/users">Users</Link>
+          </li>
         </ul>
       </nav>
       <div>
         <label htmlFor="data">Enter Data: </label>
-        <input type="text" name="" id="data" onChange={(e)=>{
-          e.target.value.length > 5 && navigate('/register', {state:{
-            register: [
-              {
-                title: "Register Page",
-                name: "Joseph"
-              }
-            ]
-          }});
-        }} />
+        <input
+          type="text"
+          name=""
+          id="data"
+          onChange={(e) => {
+            e.target.value.length > 5 &&
+              navigate("/register", {
+                state: {
+                  register: [
+                    {
+                      title: "Register Page",
+                      name: "Joseph",
+                    },
+                  ],
+                },
+              });
+          }}
+        />
       </div>
-      <UserContext.Provider value={{...userData, setUserData}}>
-      <div id="detail">
-        {loading ? <div id="search-spinner"></div> : !error && <PostContainer/>}
-      </div>
+      <UserContext.Provider value={{ ...userData, setUserData }}>
+        <div id="detail">
+          {loading ? (
+            <div id="search-spinner"></div>
+          ) : (
+            !error && <PostContainer />
+          )}
+        </div>
       </UserContext.Provider>
       <Outlet />
     </>
-    
+
     //<LoginForm/>
     //<RegisterForm />
     //<RegisterState/>

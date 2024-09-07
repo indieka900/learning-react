@@ -32,8 +32,9 @@ export function UserDetails({ user, setUsers, setCounter }) {
 
         <button
           onClick={() => {
-            setUsers((current) => 
-              current.filter((currentUser) => currentUser.id !== user.id));
+            setUsers((current) =>
+              current.filter((currentUser) => currentUser.id !== user.id)
+            );
             setCounter((c) => c - 1);
           }}
         >
